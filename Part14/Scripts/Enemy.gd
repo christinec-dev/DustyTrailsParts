@@ -194,7 +194,7 @@ func _on_animated_sprite_2d_animation_finished():
 		bullet.damage = bullet_damage
 		bullet.direction = new_direction.normalized()
 		# Place it 4-5 pixels away in front of the player to simulate it coming from the guns barrel
-		bullet.position = position + new_direction.normalized() * 4
+		bullet.position = player.position + new_direction.normalized() * 4
 		get_tree().root.get_node("Main").add_child(bullet)
 	
 #damages the player if player is still in front of enemy
