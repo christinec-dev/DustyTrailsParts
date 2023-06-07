@@ -4,23 +4,17 @@ extends CharacterBody2D
 
 # Enemy movement speed
 @export var speed = 50
-
 #it’s the current movement direction of the cactus enemy.
 var direction : Vector2
-
 #direction and animation to be updated throughout game state
 var new_direction = Vector2(0,1) #only move one spaces
 var animation
-
 #attack anim state
 var is_attacking = false
-
 # RandomNumberGenerator to generate timer countdown value 
 var rng = RandomNumberGenerator.new()
-
 #timer reference to redirect the enemy if collision events occur & timer countdown reaches 0
 var timer = 0
-
 #player scene ref
 var player
 
@@ -36,7 +30,7 @@ var health_regen = 1
 var bullet_damage = 50
 var bullet_reload_time = 1000
 var bullet_fired_time = 0.5
-var bullet_scene = preload("res://Scenes/EnemyBullet.tscn")
+var bullet_scene = preload("res://Scenes/Bullet.tscn")
 
 # Pickup scene
 var pickups_scene = preload("res://Scenes/Pickup.tscn")
@@ -49,7 +43,7 @@ func _ready():
 	rng.randomize()
 	
 	#reset modulate value so the enemy doesn't stay red
-	$AnimationPlayer.current_animation == "[stop]"
+	$AnimationPlayer.current_animation == ""
 	$AnimatedSprite2D.modulate = $AnimatedSprite2D.modulate
 	
 # Apply movement to the enemy
@@ -72,14 +66,11 @@ func _physics_process(delta):
 	#plays animations only if the enemy is not attacking
 	if !is_attacking:
 		enemy_animations(direction)
+		
 	#resets our attacking state back to false	
 	if $AnimatedSprite2D.animation == "spawn":
 		$Timer.start()
 		
-	# Turn RayCast2D toward movement direction	
-	if direction != Vector2.ZERO:
-		$RayCast2D.target_position = direction.normalized() * 50
-			
 func _on_timer_timeout():
 	# Calculate the distance of the player's relative position to the enemy's position
 	var player_distance = player.position - position
@@ -106,7 +97,7 @@ func _on_timer_timeout():
 			elif random_direction < 0.1:
 				#enemy moves
 				direction = Vector2.DOWN.rotated(rng.randf() * 2 * PI)
-				
+		
 #animations to play
 func enemy_animations(direction : Vector2):
 	if direction != Vector2.ZERO:
@@ -119,21 +110,17 @@ func enemy_animations(direction : Vector2):
 		
 #returns the animation direction
 func returned_direction(direction : Vector2):
-	#it normalizes the direction vector to make sure it has length 1 
 	var normalized_direction  = direction.normalized()
-	
-	if normalized_direction.y >= 0.707:
+	if normalized_direction.y >= .7:
 		return "down"
-	if normalized_direction.y <= -0.707:
+	elif normalized_direction.y <= -.7:
 		return "up"
-	if normalized_direction.x >= 0.707:
+	elif normalized_direction.x >= .7:
 		$AnimatedSprite2D.flip_h = false
 		return "side"
-	if normalized_direction.x <= -0.707:
-		#flip the animation
+	elif normalized_direction.x <= -.7:
 		$AnimatedSprite2D.flip_h = true
 		return "side"
-	
 	return ""
 
 #enemy spawn animations
@@ -142,37 +129,19 @@ func spawn():
 	is_attacking = true
 	$Timer.start()
 	timer = 0
-		
+	
 #resets our attacking state back to false
 func _on_animated_sprite_2d_animation_finished():
-		#Once the death animation has played, we can remove the enemy from the scene tree
+	#Once the death animation has played, we can remove the enemy from the scene tree
 	if $AnimatedSprite2D.animation == "death":
 		get_tree().queue_delete(self)
 		
 	is_attacking = false
-	
-	# Instantiate Bullet
-	if $AnimatedSprite2D.animation.begins_with("attack_"):
-		var bullet = bullet_scene.instantiate()
-		bullet.damage = bullet_damage
-		bullet.direction = new_direction.normalized()
-		# Place it 8 pixels away in front of the enemy to simulate it coming from the guns barrel
-		bullet.position = position + new_direction.normalized() * 8
-		get_tree().root.get_node("Main").add_child(bullet)
 
 func _process(delta):
 	#regenerates our enemy's health
 	health = min(health + health_regen * delta, max_health)
-	#get the collider of the raycast ray
-	var target = $RayCast2D.get_collider()
-	if target != null:
-		#if we are colliding with the player and the player isn't dead
-		if target.name == "Player":
-			#shooting anim
-			is_attacking = true
-			var animation  = "attack_" + returned_direction(new_direction)
-			$AnimatedSprite2D.play(animation)
-			
+
 #will damage the enemy when they get hit
 func hit(damage):
 	health -= damage
@@ -199,3 +168,4 @@ func hit(damage):
 			pickup.item = rng.randi() % 3 #we have three pickups in our enum
 			get_tree().root.get_node("Main").call_deferred("add_child", pickup)
 			pickup.position = position
+		
