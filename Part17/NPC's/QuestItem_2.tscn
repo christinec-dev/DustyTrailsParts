@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://btkej0rwe65g3"]
+
+[ext_resource type="Script" path="res://NPC's/QuestItem_2.gd" id="1_ytorn"]
+[ext_resource type="Texture2D" uid="uid://023au01xoyuf" path="res://Assets/Icons/key_01e.png" id="2_i5tl2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxk5p"]
+size = Vector2(17, 16)
+
+[node name="QuestItem" type="Area2D"]
+script = ExtResource("1_ytorn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_wxk5p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i5tl2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
