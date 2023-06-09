@@ -60,9 +60,10 @@ func _ready():
 	stamina_pickups_updated.emit(stamina_pickup)
 	
 	#reset modulate value so the enemy doesn't stay red
-	$AnimationPlayer.stop()
-	$AnimationPlayer.current_animation == "[stop]"
-	$AnimatedSprite2D.modulate = $AnimatedSprite2D.modulate
+	$AnimatedSprite2D.modulate.r = 1
+	$AnimatedSprite2D.modulate.g = 1
+	$AnimatedSprite2D.modulate.b = 1
+	$AnimatedSprite2D.modulate.a = 1
 	
 #updates the stats continously
 func _process(delta):
@@ -273,3 +274,10 @@ func update_xp(value):
 func _on_confirm_pressed():
 	$UI/LevelUpPopup.visible =false
 	get_tree().paused = false
+
+#resets modulate value
+func _on_animation_player_animation_finished(anim_name):
+	$AnimatedSprite2D.modulate.r = 1
+	$AnimatedSprite2D.modulate.g = 1
+	$AnimatedSprite2D.modulate.b = 1
+	$AnimatedSprite2D.modulate.a = 1
