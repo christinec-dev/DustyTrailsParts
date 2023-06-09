@@ -51,10 +51,12 @@ func _ready():
 	health_pickups_updated.emit(health_pickup)
 	stamina_pickups_updated.emit(stamina_pickup)
 	
-	#reset modulate value so the enemy doesn't stay red
-	$AnimationPlayer.stop()
-	$AnimationPlayer.current_animation == "[stop]"
-	$AnimatedSprite2D.modulate = $AnimatedSprite2D.modulate
+	#resets modulate value
+	func _on_animation_player_animation_finished(anim_name):
+		$AnimatedSprite2D.modulate.r = 1
+		$AnimatedSprite2D.modulate.g = 1
+		$AnimatedSprite2D.modulate.b = 1
+		$AnimatedSprite2D.modulate.a = 1
 	
 #updates the stats continously
 func _process(delta):
@@ -210,3 +212,10 @@ func hit(damage):
 		#stop health regeneration
 		set_process(false)
 		$AnimationPlayer.play("game_over")
+		
+#resets modulate value
+func _on_animation_player_animation_finished(anim_name):
+	$AnimatedSprite2D.modulate.r = 1
+	$AnimatedSprite2D.modulate.g = 1
+	$AnimatedSprite2D.modulate.b = 1
+	$AnimatedSprite2D.modulate.a = 1
