@@ -40,8 +40,10 @@ func _ready():
 	rng.randomize()
 	
 	#reset modulate value so the enemy doesn't stay red
-	$AnimationPlayer.current_animation == ""
-	$AnimatedSprite2D.modulate = $AnimatedSprite2D.modulate
+	$AnimatedSprite2D.modulate.r = 1
+	$AnimatedSprite2D.modulate.g = 1
+	$AnimatedSprite2D.modulate.b = 1
+	$AnimatedSprite2D.modulate.a = 1
 	
 # Apply movement to the enemy
 func _physics_process(delta):
