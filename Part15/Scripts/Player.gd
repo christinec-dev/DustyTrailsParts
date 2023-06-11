@@ -51,12 +51,11 @@ func _ready():
 	health_pickups_updated.emit(health_pickup)
 	stamina_pickups_updated.emit(stamina_pickup)
 	
-	#resets modulate value
-	func _on_animation_player_animation_finished(anim_name):
-		$AnimatedSprite2D.modulate.r = 1
-		$AnimatedSprite2D.modulate.g = 1
-		$AnimatedSprite2D.modulate.b = 1
-		$AnimatedSprite2D.modulate.a = 1
+	#prevents player from spawning on red
+	$AnimatedSprite2D.modulate.r = 1
+	$AnimatedSprite2D.modulate.g = 1
+	$AnimatedSprite2D.modulate.b = 1
+	$AnimatedSprite2D.modulate.a = 1
 	
 #updates the stats continously
 func _process(delta):
