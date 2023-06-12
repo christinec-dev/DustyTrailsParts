@@ -5,7 +5,8 @@ enum Pickups { AMMO, STAMINA, HEALTH }
 
 #player reference
 func _ready():
-	player = get_tree().root.get_node("Main/Player")
+	player = get_tree().root.get_node("Main/Player")	
+	$ShopMenu.hide()
 
 #updates coin amount
 func _process(delta):
