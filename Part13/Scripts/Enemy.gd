@@ -71,6 +71,11 @@ func _physics_process(delta):
 	if $AnimatedSprite2D.animation == "spawn":
 		$Timer.start()
 		
+#syncs new_direction with the actual movement direction and is called whenever the enemy moves or rotates
+func sync_new_direction():
+	if direction != Vector2.ZERO:
+		new_direction = direction.normalized()	
+	
 func _on_timer_timeout():
 	# Calculate the distance of the player's relative position to the enemy's position
 	var player_distance = player.position - position
@@ -78,13 +83,15 @@ func _on_timer_timeout():
 	#attack radius
 	#turn towards player so that it can attack
 	if player_distance.length() <= 20:
-		direction = Vector2.ZERO
 		new_direction = player_distance.normalized()
+		sync_new_direction() 
+		direction = Vector2.ZERO  # Stop moving while attacking
 		
 	#chase radius
 	#chase/move towards player to attack them
 	elif player_distance.length() <= 100 and timer == 0:
-		direction = player_distance.normalized()
+		direction = player_distance.normalized()	
+		sync_new_direction()		
 		
 	#random roam radius
 	elif timer == 0:
@@ -97,6 +104,7 @@ func _on_timer_timeout():
 			elif random_direction < 0.1:
 				#enemy moves
 				direction = Vector2.DOWN.rotated(rng.randf() * 2 * PI)
+			sync_new_direction()	
 		
 #animations to play
 func enemy_animations(direction : Vector2):
