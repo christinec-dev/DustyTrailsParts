@@ -2,9 +2,7 @@
 The sectional source code for the rootinest tootinest RPG game tutorial series out there made with Godot 4 and GDScript. This tutorial series aims to teach you how to make a game from start to finish, and ultimately show you all the things that you need to know as a beginner Godot developer!
 
 ## Project Preview Video
-You can watch the preview video that showcases our end-product here: [YOUTUBE](https://youtu.be/06wirnzGxZ0)
-
-<a href="https://youtu.be/06wirnzGxZ0" target="_blank"><img src="https://github.com/christinec-dev/DustyTrails_CompleteProject/assets/87696858/38a57497-b471-4668-aaa6-4288283d636d" alt="IMAGE ALT TEXT HERE"  /></a>
+You can watch the preview video that showcases our end-product here: https://youtu.be/06wirnzGxZ0
 
 ## Project Overview
 This game is a western-esque wild west RPG that includes the following:
