@@ -35,7 +35,10 @@ func _physics_process(delta):
 		#plays animations only if the player is not attacking
 		player_animations(direction)
 	
-	
+	# Check if the attack animation has finished for each frame to prevent the animation frame from clogging
+	if is_attacking and !$AnimatedSprite2D.is_playing():
+		is_attacking = false
+
 #animations to play
 func player_animations(direction : Vector2):
 	#Vector2.ZERO is the shorthand for writing Vector2(0, 0).
