@@ -45,7 +45,11 @@ func _physics_process(delta):
 	#plays animations only if the enemy is not attacking
 	if !is_attacking:
 		enemy_animations(direction)
-		
+
+	# Check if the attack animation has finished for each frame to prevent the animation frame from clogging
+	if is_attacking and !$AnimatedSprite2D.is_playing():
+		is_attacking = false
+
 #syncs new_direction with the actual movement direction and is called whenever the enemy moves or rotates
 func sync_new_direction():
 	if direction != Vector2.ZERO:
