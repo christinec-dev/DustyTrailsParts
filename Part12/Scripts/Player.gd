@@ -64,7 +64,11 @@ func _process(delta):
 	if updated_stamina != stamina:
 		stamina = updated_stamina
 		stamina_updated.emit(stamina, max_stamina)
-			
+
+	# Check if the attack animation has finished for each frame to prevent the animation frame from clogging
+	if is_attacking and !$AnimatedSprite2D.is_playing():
+		is_attacking = false	
+
 func _physics_process(delta):
 	# Get player input (left, right, up/down)
 	var direction: Vector2
