@@ -132,7 +132,11 @@ func _physics_process(delta):
 	# Turn RayCast2D toward movement direction	
 	if direction != Vector2.ZERO:
 		$RayCast2D.target_position = direction.normalized() * 50	
-			
+
+	# Check if the attack animation has finished for each frame to prevent the animation frame from clogging
+	if is_attacking and !$AnimatedSprite2D.is_playing():
+		is_attacking = false		
+
 #animations to play
 func player_animations(direction : Vector2):
 	#Vector2.ZERO is the shorthand for writing Vector2(0, 0).
