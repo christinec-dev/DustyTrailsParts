@@ -12,12 +12,12 @@ func _ready():
 func _process(delta):
 	$ShopMenu/ColorRect/CoinAmount.text = "Coins: " + str(player.coins)
 	
-#opens popup and pauses game
 func _on_area_2d_body_entered(body):
-	$ShopMenu.show()
-	get_tree().paused = true
-	set_process_input(true)
-	player.set_physics_process(false)
+	if body.name == "Player":
+		$ShopMenu.show()
+		get_tree().paused = true
+		set_process_input(true)
+		player.set_physics_process(false)
 
 #closes popup and unpauses game
 func _on_close_pressed():
