@@ -38,7 +38,6 @@ func _input(event):
 		if event.is_pressed():
 			if event.keycode == KEY_A:	
 				npc.dialog("A")
-				print("hello")
 			elif event.keycode == KEY_B:
 				npc.dialog("B")
 			

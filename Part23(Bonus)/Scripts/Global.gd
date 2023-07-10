@@ -11,6 +11,9 @@ var save_path = "user://dusty_trails_save.json"
 # loading state
 var loading = false
 
+#notifies scene change
+signal scene_changed(new_scene)
+
 #set current scene on load
 func _ready():
 	current_scene_name = get_tree().get_current_scene().name
@@ -27,6 +30,8 @@ func change_scene(scene_path):
 	get_tree().set_current_scene(new_scene)
 	# Carries persistent data across scenes 
 	load_data()
+	
+	scene_changed.emit(new_scene)
 	
 # save game	
 func save():
@@ -97,8 +102,10 @@ func load_game():
 			enemy_spawner.data_to_load(data["enemies"])
 		if(npc and npc.quest_complete):
 			game.get_node("QuestItem").queue_free()
+		return true
 	else:
 		print("Save file not found!")
+		return false
 
 #player data to load when changing scenes
 func load_data():
