@@ -41,4 +41,4 @@ All assets can be downloaded from my Google Drive:
 - https://kyrise.itch.io/kyrises-free-16x16-rpg-icon-pack
 
 
-
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/J3J2LP2U5)
