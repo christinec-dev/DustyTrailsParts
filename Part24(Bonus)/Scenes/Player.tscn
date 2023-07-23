@@ -1,0 +1,1425 @@
+[gd_scene load_steps=109 format=3 uid="uid://wrjdakhv8xgu"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_oy0qc"]
+[ext_resource type="Texture2D" uid="uid://d0djok8y1fmuk" path="res://Map(Seperate)/Assets/Assets/Player/Player Front Sheet.png" id="2_qcbkx"]
+[ext_resource type="Texture2D" uid="uid://bkn51u0pped7v" path="res://Map(Seperate)/Assets/Assets/Player/Player Side Sheet.png" id="3_7u72a"]
+[ext_resource type="Texture2D" uid="uid://d2j6cf5ctielj" path="res://Map(Seperate)/Assets/Assets/Player/Player Back Sheet.png" id="4_lswhp"]
+[ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://Map(Seperate)/Assets/Assets/Font/Schrödinger.ttf" id="5_7try8"]
+[ext_resource type="FontFile" uid="uid://lxeddhw7kru1" path="res://Map(Seperate)/Assets/Assets/Font/ARCADECLASSIC.TTF" id="6_8yprh"]
+[ext_resource type="Script" path="res://GUI/DialogPopup.gd" id="7_ifuym"]
+[ext_resource type="Script" path="res://GUI/Health.gd" id="8_m3nr6"]
+[ext_resource type="Script" path="res://GUI/Stamina.gd" id="9_a5fsu"]
+[ext_resource type="Script" path="res://GUI/AmmoAmount.gd" id="10_j2hqv"]
+[ext_resource type="Texture2D" uid="uid://b6wahuhdh6mbg" path="res://Map(Seperate)/Assets/Assets/Icons/shard_01i.png" id="11_534uw"]
+[ext_resource type="Script" path="res://GUI/HealthAmount.gd" id="12_wy8dw"]
+[ext_resource type="Texture2D" uid="uid://c4xvnv66nrhov" path="res://Map(Seperate)/Assets/Assets/Icons/potion_02c.png" id="13_x0gbe"]
+[ext_resource type="Texture2D" uid="uid://3jih7fspyjvw" path="res://Map(Seperate)/Assets/Assets/Icons/coin_04d.png" id="14_d4uud"]
+[ext_resource type="Script" path="res://GUI/StaminaAmount.gd" id="14_h1lx8"]
+[ext_resource type="Texture2D" uid="uid://c165g8lnh74xn" path="res://Map(Seperate)/Assets/Assets/Icons/potion_02b.png" id="15_jyphs"]
+[ext_resource type="Script" path="res://GUI/XP.gd" id="16_nfk1d"]
+[ext_resource type="Script" path="res://GUI/Level.gd" id="17_b36lv"]
+[ext_resource type="AudioStream" uid="uid://br70u3hlm8qpl" path="res://Map(Seperate)/Assets/Assets/Music/Wild West Music - Harvey Carman/WAV/We Ride At Dawn! (loop).wav" id="18_f2am4"]
+[ext_resource type="AudioStream" uid="uid://byaalf68kk86e" path="res://Map(Seperate)/Assets/Assets/Music/Wild West Music - Harvey Carman/WAV/We Don't Need Railroads (loop).wav" id="19_kwyei"]
+[ext_resource type="AudioStream" uid="uid://ddvo6hy12ffmt" path="res://Map(Seperate)/Assets/Assets/Music/Wild West Music - Harvey Carman/WAV/Too Late To Save The Town.wav" id="20_taw4x"]
+[ext_resource type="AudioStream" uid="uid://fcle8f32ebu4" path="res://Map(Seperate)/Assets/Assets/Music/Wild West Music - Harvey Carman/WAV/Whiskey Barn Dance (loop).wav" id="21_asoju"]
+[ext_resource type="AudioStream" uid="uid://bom7226vkok0j" path="res://Map(Seperate)/Assets/Assets/Music/Free Retro SFX by @inertsongs/Retro PowerUP StereoUP 05.wav" id="22_lrbld"]
+[ext_resource type="AudioStream" uid="uid://djk84jvwq26xn" path="res://Map(Seperate)/Assets/Assets/Music/Free Retro SFX by @inertsongs/SFX/stamfull.wav" id="23_fgukf"]
+[ext_resource type="AudioStream" uid="uid://frr0m8oyogmr" path="res://Map(Seperate)/Assets/Assets/Music/Free Retro SFX by @inertsongs/SFX/Retro Impact LoFi 09.wav" id="24_2bmsl"]
+[ext_resource type="AudioStream" uid="uid://bymn001xnh2ph" path="res://Map(Seperate)/Assets/Assets/Music/Free Retro SFX by @inertsongs/SFX/Retro Weapon Gun LoFi 03.wav" id="25_gu6ty"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or2tm"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(0, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsca4"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(48, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22cgl"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(96, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lyt0"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(144, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72km3"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(192, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys5ww"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(240, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgt10"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(0, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci0pp"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(48, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtt2e"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(96, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ae4n"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(144, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12pge"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(192, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o27wq"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(240, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns5l3"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(0, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpwpd"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(48, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lnbw"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(96, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnpho"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(144, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy1iq"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(192, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e8cl"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(240, 88, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s0y5"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(0, 132, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kfsm"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(0, 176, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81qjm"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(48, 176, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi6ql"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(96, 176, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8ol6"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(144, 176, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amb0q"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(192, 176, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rr04"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(240, 176, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydtxg"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(288, 176, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmxc0"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(336, 176, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fya16"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(384, 176, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl8s1"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(432, 176, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ivqv"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(480, 176, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7a4gv"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(528, 176, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob7yt"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(576, 176, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6bkb"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(624, 176, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2b1kr"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(0, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70ebh"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(48, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shk4c"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(96, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rcau"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(144, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d22nn"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(192, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qttnx"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(240, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlcfi"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(0, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j34s"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(48, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm28j"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(96, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5rk1"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(144, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1pbs"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(192, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4lp7"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(240, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlg2a"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(0, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0wll"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(48, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfyu6"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(96, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8e5n"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(144, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkd6c"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(192, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk77h"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(240, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqufq"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(0, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_patio"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(48, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppyhf"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(96, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcayx"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(144, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v70my"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(192, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e77ps"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(240, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ftue"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(288, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm03c"]
+atlas = ExtResource("2_qcbkx")
+region = Rect2(336, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gjqi"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(0, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xetvw"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(48, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyduy"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(96, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss513"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(144, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d11nu"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(192, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2ifo"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(240, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb3j3"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(288, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4oym"]
+atlas = ExtResource("3_7u72a")
+region = Rect2(336, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1enxm"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(0, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcec7"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(48, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujxrj"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(96, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx6wn"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(144, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0paw7"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(192, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qphpr"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(240, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmetp"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(288, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5kik"]
+atlas = ExtResource("4_lswhp")
+region = Rect2(336, 44, 48, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ti54q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or2tm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsca4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22cgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lyt0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72km3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys5ww")
+}],
+"loop": false,
+"name": &"attack_down",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgt10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci0pp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtt2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ae4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12pge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o27wq")
+}],
+"loop": false,
+"name": &"attack_side",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ns5l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpwpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lnbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnpho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy1iq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e8cl")
+}],
+"loop": false,
+"name": &"attack_up",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s0y5")
+}],
+"loop": false,
+"name": &"damage",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kfsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81qjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi6ql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8ol6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amb0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rr04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydtxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmxc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fya16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl8s1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ivqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7a4gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob7yt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6bkb")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2b1kr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70ebh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shk4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rcau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d22nn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qttnx")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlcfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j34s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qm28j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5rk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1pbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4lp7")
+}],
+"loop": true,
+"name": &"idle_side",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlg2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0wll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfyu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8e5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkd6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk77h")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqufq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_patio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppyhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcayx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v70my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e77ps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ftue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nm03c")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gjqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xetvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyduy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss513")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d11nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2ifo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nb3j3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4oym")
+}],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1enxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcec7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujxrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx6wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0paw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qphpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmetp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5kik")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i7tid"]
+
+[sub_resource type="Animation" id="Animation_mkmlc"]
+resource_name = "damage"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_150pm"]
+resource_name = "game_over"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/GameOver:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_s6s6r"]
+resource_name = "sleeping"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/SleepScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g7hmq"]
+resource_name = "typewriter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/DialogPopup/Dialog/Message:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8u7v0"]
+_data = {
+"damage": SubResource("Animation_mkmlc"),
+"game_over": SubResource("Animation_150pm"),
+"sleeping": SubResource("Animation_s6s6r"),
+"typewriter": SubResource("Animation_g7hmq")
+}
+
+[node name="Player" type="CharacterBody2D"]
+process_mode = 3
+script = ExtResource("1_oy0qc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+sprite_frames = SubResource("SpriteFrames_ti54q")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_i7tid")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8u7v0")
+}
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collide_with_areas = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ColorRect" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -25.0
+offset_right = 105.0
+offset_bottom = -15.0
+grow_vertical = 0
+color = Color(0.227451, 0.223529, 0.207843, 0.415686)
+script = ExtResource("8_m3nr6")
+
+[node name="Value" type="ColorRect" parent="UI/HealthBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -4.0
+offset_right = 49.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.643137, 0.870588, 0.47451, 1)
+
+[node name="StaminaBar" type="ColorRect" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -13.0
+offset_right = 105.0
+offset_bottom = -3.0
+grow_vertical = 0
+color = Color(0.227451, 0.223529, 0.207843, 0.415686)
+script = ExtResource("9_a5fsu")
+
+[node name="Value" type="ColorRect" parent="UI/StaminaBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -4.0
+offset_right = 49.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.215686, 0.486275, 0.619608, 1)
+
+[node name="AmmoAmount" type="ColorRect" parent="UI"]
+offset_left = 5.0
+offset_top = 8.0
+offset_right = 45.0
+offset_bottom = 28.0
+color = Color(0.227451, 0.223529, 0.207843, 0.415686)
+script = ExtResource("10_j2hqv")
+
+[node name="Icon" type="Sprite2D" parent="UI/AmmoAmount"]
+position = Vector2(10, 10)
+texture = ExtResource("11_534uw")
+
+[node name="Value" type="Label" parent="UI/AmmoAmount"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -13.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_8yprh")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthAmount" type="ColorRect" parent="UI"]
+offset_left = 50.0
+offset_top = 8.0
+offset_right = 90.0
+offset_bottom = 28.0
+color = Color(0.227451, 0.223529, 0.207843, 0.415686)
+script = ExtResource("12_wy8dw")
+
+[node name="Icon" type="Sprite2D" parent="UI/HealthAmount"]
+position = Vector2(10, 10)
+texture = ExtResource("13_x0gbe")
+
+[node name="Value" type="Label" parent="UI/HealthAmount"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -13.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_8yprh")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StaminaAmount" type="ColorRect" parent="UI"]
+offset_left = 95.0
+offset_top = 8.0
+offset_right = 135.0
+offset_bottom = 28.0
+color = Color(0.227451, 0.223529, 0.207843, 0.415686)
+script = ExtResource("14_h1lx8")
+
+[node name="Icon" type="Sprite2D" parent="UI/StaminaAmount"]
+position = Vector2(10, 10)
+texture = ExtResource("15_jyphs")
+
+[node name="Value" type="Label" parent="UI/StaminaAmount"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -13.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_8yprh")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinAmount" type="ColorRect" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -65.0
+offset_top = 10.0
+offset_right = -5.0
+offset_bottom = 30.0
+grow_horizontal = 0
+color = Color(0.227451, 0.223529, 0.207843, 0.415686)
+
+[node name="Icon" type="Sprite2D" parent="UI/CoinAmount"]
+position = Vector2(10, 10)
+texture = ExtResource("14_d4uud")
+
+[node name="Value" type="Label" parent="UI/CoinAmount"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -12.0
+offset_right = -1.0
+offset_bottom = 14.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_8yprh")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="XP" type="ColorRect" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -95.0
+offset_top = -38.0
+offset_right = -5.0
+offset_bottom = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0.227451, 0.223529, 0.207843, 0.415686)
+script = ExtResource("16_nfk1d")
+
+[node name="Label" type="Label" parent="UI/XP"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -12.0
+offset_right = 25.0
+offset_bottom = 12.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_8yprh")
+theme_override_font_sizes/font_size = 15
+text = "XP:"
+
+[node name="Value" type="Label" parent="UI/XP"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 17.0
+offset_top = -10.5
+offset_right = 52.0
+offset_bottom = 9.5
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_8yprh")
+theme_override_font_sizes/font_size = 15
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Value2" type="Label" parent="UI/XP"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 54.0
+offset_top = -13.5
+offset_right = 89.0
+offset_bottom = 10.5
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_8yprh")
+theme_override_font_sizes/font_size = 15
+text = "/  100"
+vertical_alignment = 1
+
+[node name="Level" type="ColorRect" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -95.0
+offset_top = -20.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0.227451, 0.223529, 0.207843, 0.415686)
+script = ExtResource("17_b36lv")
+
+[node name="Label" type="Label" parent="UI/Level"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -12.0
+offset_right = 25.0
+offset_bottom = 12.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_8yprh")
+theme_override_font_sizes/font_size = 15
+text = "LEVEL:"
+
+[node name="Value" type="Label" parent="UI/Level"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -12.0
+offset_right = -4.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_8yprh")
+theme_override_font_sizes/font_size = 15
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LevelUpPopup" type="Popup" parent="UI"]
+process_mode = 2
+position = Vector2i(90, 15)
+size = Vector2i(150, 150)
+
+[node name="Message" type="ColorRect" parent="UI/LevelUpPopup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -71.0
+offset_right = 71.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.839216, 0.764706, 0.462745, 1)
+
+[node name="Label" type="Label" parent="UI/LevelUpPopup/Message"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -35.5
+offset_top = 5.0
+offset_right = 35.5
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_8yprh")
+theme_override_font_sizes/font_size = 15
+text = "Level Up!"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Rewards" type="ColorRect" parent="UI/LevelUpPopup/Message"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -41.0
+offset_right = 49.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.211765, 0.337255, 0.333333, 1)
+
+[node name="LevelGained" type="Label" parent="UI/LevelUpPopup/Message/Rewards"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -3.0
+offset_top = 10.0
+offset_right = 3.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_7try8")
+theme_override_font_sizes/font_size = 10
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthIncreaseGained" type="Label" parent="UI/LevelUpPopup/Message/Rewards"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -3.0
+offset_top = 20.0
+offset_right = 3.0
+offset_bottom = 33.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_7try8")
+theme_override_font_sizes/font_size = 10
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StaminaIncreaseGained" type="Label" parent="UI/LevelUpPopup/Message/Rewards"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -3.0
+offset_top = 30.0
+offset_right = 3.0
+offset_bottom = 43.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_7try8")
+theme_override_font_sizes/font_size = 10
+text = "1"
+
+[node name="HealthPickupsGained" type="Label" parent="UI/LevelUpPopup/Message/Rewards"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -3.0
+offset_top = 40.0
+offset_right = 3.0
+offset_bottom = 53.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_7try8")
+theme_override_font_sizes/font_size = 10
+text = "1"
+
+[node name="StaminaPickupsGained" type="Label" parent="UI/LevelUpPopup/Message/Rewards"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -3.0
+offset_top = 50.0
+offset_right = 3.0
+offset_bottom = 63.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_7try8")
+theme_override_font_sizes/font_size = 10
+text = "1"
+
+[node name="AmmoPickupsGained" type="Label" parent="UI/LevelUpPopup/Message/Rewards"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -3.0
+offset_top = 60.0
+offset_right = 3.0
+offset_bottom = 73.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_7try8")
+theme_override_font_sizes/font_size = 10
+text = "1"
+
+[node name="Confirm" type="Button" parent="UI/LevelUpPopup/Message"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_7try8")
+text = "CONTINUE"
+
+[node name="DialogPopup" type="Popup" parent="UI"]
+process_mode = 2
+position = Vector2i(10, 90)
+size = Vector2i(300, 80)
+script = ExtResource("7_ifuym")
+
+[node name="Dialog" type="ColorRect" parent="UI/DialogPopup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.345098, 0.0980392, 0.160784, 1)
+
+[node name="NPC" type="Label" parent="UI/DialogPopup/Dialog"]
+process_mode = 2
+layout_mode = 0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 295.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0.698039, 0.384314, 0.270588, 1)
+theme_override_fonts/font = ExtResource("5_7try8")
+theme_override_font_sizes/font_size = 10
+text = "Name"
+
+[node name="Message" type="Label" parent="UI/DialogPopup/Dialog"]
+process_mode = 2
+layout_mode = 0
+offset_left = 5.0
+offset_top = 15.0
+offset_right = 295.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("5_7try8")
+theme_override_font_sizes/font_size = 10
+text = "Text goes here...
+"
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Response" type="Label" parent="UI/DialogPopup/Dialog"]
+process_mode = 2
+layout_mode = 0
+offset_left = 5.0
+offset_top = 60.0
+offset_right = 295.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0.839216, 0.764706, 0.462745, 1)
+theme_override_fonts/font = ExtResource("5_7try8")
+theme_override_font_sizes/font_size = 10
+text = "Answer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseScreen" type="Popup" parent="UI"]
+size = Vector2i(320, 180)
+
+[node name="Menu" type="ColorRect" parent="UI/PauseScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.211765, 0.337255, 0.333333, 1)
+
+[node name="Resume" type="Button" parent="UI/PauseScreen/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -40.0
+offset_right = 90.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/PauseScreen/Menu/Resume"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -13.0
+offset_right = 57.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_7try8")
+theme_override_font_sizes/font_size = 10
+text = "Resume Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Save" type="Button" parent="UI/PauseScreen/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -10.0
+offset_right = 90.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/PauseScreen/Menu/Save"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -13.0
+offset_right = 44.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_7try8")
+theme_override_font_sizes/font_size = 10
+text = "Save Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Quit" type="Button" parent="UI/PauseScreen/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = 20.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/PauseScreen/Menu/Quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -13.0
+offset_right = 44.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_7try8")
+theme_override_font_sizes/font_size = 10
+text = "Quit Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="GameOver" type="ColorRect" parent="UI"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.839216, 0.764706, 0.462745, 1)
+
+[node name="Label" type="Label" parent="UI/GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -13.0
+offset_right = 50.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_7try8")
+theme_override_font_sizes/font_size = 20
+text = "Game Over!!"
+uppercase = true
+
+[node name="Label2" type="Label" parent="UI/GameOver"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -83.5
+offset_top = -26.0
+offset_right = 83.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_7try8")
+theme_override_font_sizes/font_size = 10
+text = "Press ESC to continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="SleepScreen" type="ColorRect" parent="UI"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.839216, 0.764706, 0.462745, 1)
+
+[node name="Label" type="Label" parent="UI/SleepScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -13.0
+offset_right = 85.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_7try8")
+theme_override_font_sizes/font_size = 20
+text = "Snoozing..."
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="PauseMenuMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 2
+stream = ExtResource("18_f2am4")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_kwyei")
+autoplay = true
+
+[node name="GameOverMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 2
+stream = ExtResource("20_taw4x")
+
+[node name="DialogMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 2
+stream = ExtResource("21_asoju")
+
+[node name="LevelUpMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_lrbld")
+
+[node name="PickupsMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_fgukf")
+
+[node name="ConsumableMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_2bmsl")
+
+[node name="BulletImpactMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_2bmsl")
+
+[node name="ShootingMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_gu6ty")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="UI/DialogPopup" method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="UI/LevelUpPopup/Message/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="UI/PauseScreen/Menu/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/PauseScreen/Menu/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="UI/PauseScreen/Menu/Quit" to="." method="_on_quit_pressed"]

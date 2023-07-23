@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dinjhnp3j1hpl"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyBullet.gd" id="1_52pi3"]
+[ext_resource type="Texture2D" uid="uid://c0x06v0gpmfeh" path="res://Map(Seperate)/Assets/Assets/FX/Death Explosion.png" id="2_aro7q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rx3u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud3vr"]
+atlas = ExtResource("2_aro7q")
+region = Rect2(0, 0, 50, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cda30"]
+atlas = ExtResource("2_aro7q")
+region = Rect2(50, 0, 50, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lua02"]
+atlas = ExtResource("2_aro7q")
+region = Rect2(100, 0, 50, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7lq1t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud3vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cda30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lua02")
+}],
+"loop": false,
+"name": &"impact",
+"speed": 10.0
+}]
+
+[node name="EnemyBullet" type="Area2D"]
+script = ExtResource("1_52pi3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2rx3u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_7lq1t")
+animation = &"impact"
+frame = 2
+frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

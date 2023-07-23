@@ -1,0 +1,111 @@
+[gd_scene load_steps=16 format=3 uid="uid://c45n0qrxysaf3"]
+
+[ext_resource type="Script" path="res://NPC's/NPC_2.gd" id="1_18me8"]
+[ext_resource type="Texture2D" uid="uid://b1cgttgl8d3h3" path="res://Map(Seperate)/Assets/Assets/Mobs/Coffin/Coffin Front Sheet.png" id="2_ue48p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2n2i"]
+size = Vector2(24, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_biy05"]
+atlas = ExtResource("2_ue48p")
+region = Rect2(0, 0, 74, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_out0c"]
+atlas = ExtResource("2_ue48p")
+region = Rect2(74, 0, 74, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g554j"]
+atlas = ExtResource("2_ue48p")
+region = Rect2(148, 0, 74, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vek5h"]
+atlas = ExtResource("2_ue48p")
+region = Rect2(222, 0, 74, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syh3w"]
+atlas = ExtResource("2_ue48p")
+region = Rect2(296, 0, 74, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrm4n"]
+atlas = ExtResource("2_ue48p")
+region = Rect2(370, 0, 74, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x4of"]
+atlas = ExtResource("2_ue48p")
+region = Rect2(962, 140, 74, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vabhf"]
+atlas = ExtResource("2_ue48p")
+region = Rect2(1036, 140, 74, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at0vg"]
+atlas = ExtResource("2_ue48p")
+region = Rect2(1110, 140, 74, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgea3"]
+atlas = ExtResource("2_ue48p")
+region = Rect2(1184, 140, 74, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yr37"]
+atlas = ExtResource("2_ue48p")
+region = Rect2(1258, 140, 74, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kq1bn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_biy05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_out0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g554j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vek5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syh3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrm4n")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4x4of")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vabhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at0vg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgea3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yr37")
+}],
+"loop": true,
+"name": &"talk_down",
+"speed": 5.0
+}]
+
+[node name="NPC_2" type="CharacterBody2D" groups=["NPC"]]
+process_mode = 3
+script = ExtResource("1_18me8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -3)
+shape = SubResource("RectangleShape2D_y2n2i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(13, 0)
+sprite_frames = SubResource("SpriteFrames_kq1bn")
+animation = &"talk_down"
+frame_progress = 0.902411

@@ -1,0 +1,165 @@
+[gd_scene load_steps=4 format=3 uid="uid://wq8bvmksiefl"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_fuacx"]
+[ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://Map(Seperate)/Assets/Assets/Font/Schrödinger.ttf" id="1_l2aqd"]
+[ext_resource type="AudioStream" uid="uid://br70u3hlm8qpl" path="res://Map(Seperate)/Assets/Assets/Music/Wild West Music - Harvey Carman/WAV/We Ride At Dawn! (loop).wav" id="3_wemda"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_fuacx")
+
+[node name="MenuScreen" type="Popup" parent="."]
+size = Vector2i(320, 180)
+visible = true
+
+[node name="Menu" type="ColorRect" parent="MenuScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.345098, 0.0980392, 0.160784, 1)
+
+[node name="New" type="Button" parent="MenuScreen/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -60.0
+offset_right = 90.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MenuScreen/Menu/New"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -13.0
+offset_right = 57.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_l2aqd")
+theme_override_font_sizes/font_size = 10
+text = "New Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Load" type="Button" parent="MenuScreen/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -30.0
+offset_right = 90.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MenuScreen/Menu/Load"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -13.0
+offset_right = 44.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_l2aqd")
+theme_override_font_sizes/font_size = 10
+text = "Load Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Settings" type="Button" parent="MenuScreen/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MenuScreen/Menu/Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -13.0
+offset_right = 44.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_l2aqd")
+theme_override_font_sizes/font_size = 10
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Quit" type="Button" parent="MenuScreen/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = 30.0
+offset_right = 90.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MenuScreen/Menu/Quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -13.0
+offset_right = 44.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_l2aqd")
+theme_override_font_sizes/font_size = 10
+text = "Quit Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wemda")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="MenuScreen/Menu/New" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="MenuScreen/Menu/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="MenuScreen/Menu/Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://4l5y1m7ceii"]
+
+[ext_resource type="Script" path="res://Scripts/EnemySpawner.gd" id="1_obvon"]
+[ext_resource type="AudioStream" uid="uid://cvl7pfln1tmue" path="res://Map(Seperate)/Assets/Assets/Music/Free Retro SFX by @inertsongs/SFX/dmg0.wav" id="2_8ld2u"]
+
+[node name="EnemySpawner" type="Node2D"]
+script = ExtResource("1_obvon")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="DeathMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_8ld2u")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

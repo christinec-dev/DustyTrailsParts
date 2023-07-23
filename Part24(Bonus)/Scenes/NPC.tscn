@@ -1,0 +1,126 @@
+[gd_scene load_steps=18 format=3 uid="uid://cq2bkqmd5vjn0"]
+
+[ext_resource type="Script" path="res://Scripts/NPC.gd" id="1_knk86"]
+[ext_resource type="Texture2D" uid="uid://byo6qpfqbr54h" path="res://Map(Seperate)/Assets/Assets/Mobs/Coyote/Coyote Front Sheet.png" id="2_m23yk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2n2i"]
+size = Vector2(24, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgdgj"]
+atlas = ExtResource("2_m23yk")
+region = Rect2(0, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sm6fw"]
+atlas = ExtResource("2_m23yk")
+region = Rect2(70, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki0i8"]
+atlas = ExtResource("2_m23yk")
+region = Rect2(140, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arqgs"]
+atlas = ExtResource("2_m23yk")
+region = Rect2(210, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fb8p1"]
+atlas = ExtResource("2_m23yk")
+region = Rect2(280, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iws1b"]
+atlas = ExtResource("2_m23yk")
+region = Rect2(350, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgmdl"]
+atlas = ExtResource("2_m23yk")
+region = Rect2(420, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts3ob"]
+atlas = ExtResource("2_m23yk")
+region = Rect2(0, 140, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1ll2"]
+atlas = ExtResource("2_m23yk")
+region = Rect2(70, 140, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_admff"]
+atlas = ExtResource("2_m23yk")
+region = Rect2(140, 140, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc34m"]
+atlas = ExtResource("2_m23yk")
+region = Rect2(210, 140, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv44g"]
+atlas = ExtResource("2_m23yk")
+region = Rect2(280, 140, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e80h"]
+atlas = ExtResource("2_m23yk")
+region = Rect2(350, 140, 70, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kq1bn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgdgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sm6fw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ki0i8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arqgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fb8p1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iws1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgmdl")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts3ob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1ll2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_admff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rc34m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qv44g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e80h")
+}],
+"loop": true,
+"name": &"talk_down",
+"speed": 5.0
+}]
+
+[node name="NPC" type="CharacterBody2D" groups=["NPC"]]
+process_mode = 3
+script = ExtResource("1_knk86")
+npc_name = "Coyote Bob"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -3)
+shape = SubResource("RectangleShape2D_y2n2i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(13, 0)
+sprite_frames = SubResource("SpriteFrames_kq1bn")
+animation = &"talk_down"
+frame_progress = 0.834508
