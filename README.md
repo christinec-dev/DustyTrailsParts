@@ -1,4 +1,4 @@
-# Dusty Trails Parts
+# Dusty Trails Parts (Moved to here: https://github.com/christinec-dev/DustyTrails_RPG_Parts_
 The sectional source code for the rootinest tootinest RPG game tutorial series out there made with Godot 4 and GDScript. This tutorial series aims to teach you how to make a game from start to finish, and ultimately show you all the things that you need to know as a beginner Godot developer!
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/J3J2LP2U5)
